@@ -11,7 +11,7 @@ const usePhotos = () => {
   useEffect(() => {
     const getTimelinePhotos = async () => {
       const followeduserphotos = await getUserPhotos(userId, following);
-
+      // console.log(`followeduserphotos`, followeduserphotos);
       followeduserphotos.sort((a, b) => b.dateCreated - a.dateCreated);
       setPhotos(followeduserphotos);
     };
@@ -19,9 +19,12 @@ const usePhotos = () => {
     if (following?.length > 0) {
       getTimelinePhotos();
     }
+    else{
+      setPhotos([])
+    }
   }, [following, userId]);
 
-  console.log(`followeduserphotos`, photos);
+  // console.log(`followeduserphotos`, photos);
   return { photos };
 };
 

@@ -24,7 +24,7 @@ const SignUp = () => {
   const handleSignUp = async (event) => {
     event.preventDefault();
     const usernameExists = await doesUsernameExist(username);
-    console.log(usernameExists);
+    // console.log(usernameExists);
     if (usernameExists) {
       setError("that username is already taken, try again.");
       return;

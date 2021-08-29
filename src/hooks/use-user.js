@@ -3,13 +3,11 @@ import UserContext from "../context/user";
 import { getUserById } from "../services/firebase";
 
 const useUser = () => {
-
   const { user } = useContext(UserContext);
   const [activeUser, setActiveUser] = useState({});
 
-
   useEffect(() => {
-    const getUserObjectById = async(userId) => {
+    const getUserObjectById = async (userId) => {
       const [res] = await getUserById(userId);
       setActiveUser(res);
     };
